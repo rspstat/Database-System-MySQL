@@ -75,12 +75,11 @@ SELECT C.Name, C.Continent, L.Language, L.Percentage
 FROM (	
 	SELECT L.CountryCode, L.Language, L.Percentage
 	FROM CountryLanguage L
-	WHERE L.Percentage > 50
-    ORDER BY L.Percentage DESC
 ) AS L
 JOIN Country C ON L.CountryCode = C.Code
-WHERE C.Continent = 'Asia'
+WHERE C.Continent = 'Asia' AND  L.Percentage > 50
 ORDER BY Percentage DESC;
+
 
 # Task 5
 SELECT C.Name, L.NumOfLanguages
